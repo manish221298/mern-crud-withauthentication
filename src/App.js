@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, {useState} from "react"
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
+import {BrowserRouter, Route, Routes, Link} from "react-router-dom"
+import Register from "./Register";
+import Login from "./Login";
+import Home from "./Home";
+import CreateTodo from "./CreateTodo";
+import ShowTodo from "./ShowTodo";
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+
+        <Routes>
+          <Route path="/" element={<Register  />} />
+          <Route path="/login" element={<Login  />} />
+          <Route path="/home" element={<Home  />} />
+          <Route path="/Createtodo" element={<CreateTodo />} />
+          <Route path="/showtodo" element={<ShowTodo />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
